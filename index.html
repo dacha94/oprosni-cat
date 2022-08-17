@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/normalize copy 5.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <title>survey</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="form" centered-top>
+            <form method="post" action="/post" id="form" class="form__body">
+                <h1>заполните пожалуйста данные для приёма</h1>
+                <div class="form__image">
+                    <img src="assets/image/cat.jpeg" alt="cat" class="form__image">
+                </div>
+
+                <div class="form__item">
+                    <label for="firstName" class="form__label">ваше имя*</label>
+                    <input id="firstName" type="text" name="firstName" class="form__input" value=""
+                        pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="1" required />
+                </div>
+
+                <div class="form__item">
+                    <label for="petName" class="form__label">имя питомца*</label>
+                    <input id="petName" type="text" name="petName" class="form__input" value=""
+                        pattern="^[-а-яА-ЯёЁ\s]+$" maxlength="40" tabindex="2" required />
+                </div>
+        </div>
+
+        <div class="form__item">
+            <label for="phone" class="form__label">телефон</label>
+            <input id="phone" type="tel" name="phone" class="form__input" value=""
+                pattern="^((8|007|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$" maxlength="13" tabindex="3"
+                placeholder="+791716125" />
+        </div>
+
+        <div class="form__item">
+            <div class="form__label">порода питомца</div>
+            <select name="desiredBreed" class="form__select" tabindex="4">
+                <option value="none" disabled selected>выберите породу</option>
+                <option value="неизвестная">неизвестная</option>
+                <option value="гаава">гаава</option>
+                <option value="абиссинская">абиссинская</option>
+                <option value="американская короткошерстная">американская короткошерстная</option>
+                <option value="бенгальская">бенгальская</option>
+                <option value="египетская мау">египетская мау</option>
+                <option value="бирманская">ирманская</option>
+                <option value="гималайская">гималайская</option>
+                <option value="манчкин">манчкин</option>
+                <option value="девон рекс">девон рекс</option>
+                <option value="мейн-кун">мейн-кун</option>
+                <option value="ориентальная кошка">ориентальная</option>
+                <option value="персидская">персидская</option>
+                <option value="рэгдолл">рэгдолл</option>
+                <option value="сиамская">сиамская</option>
+                <option value="сфинкс">сфинкс</option>
+                <option value="донской сфинкс">донской сфинкс</option>
+            </select>
+        </div>
+
+        <div class="desiredBreed">
+            <label for="desiredBreed">напишите нужную породу</label>
+            <input type="text" name="desiredBreed" tabindex="4" required>
+        </div>
+
+        <div class="form__checkbox">
+            <div class="checkbox__item" id="drycheckbox" tabindex="5">
+                <input id="dryfood" type="checkbox" name="food" value="Сухой корм">
+                <label for="dryfood" class="checkbox__label">сухой корм</label>
+            </div>
+
+            <div class="checkbox__item" id="ntrlcheckbox" tabindex="6">
+                <input id="naturalfood" type="checkbox" name="food" value="Натуральный корм" />
+                <label for="naturalfood" class="checkbox__label">натуральный корм</label>
+
+                <div class="checkbox__item" id="wetcheckbox" tabindex="7">
+                    <input id="wetfood" type="checkbox" name="food" value="Влажный корм" />
+                    <label for="wetfood" class="checkbox__label">влажный корм</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="form__radio"> выберите пол питомца
+            <div class="radio__item" id="femaleradio" tabindex="8">
+                <input id="female" type="radio" name="sex" value="Самка" required />
+                <label for="female" class="radio__label">самка</label>
+            </div>
+
+            <div class="radio__item" id="maleradio" tabindex="9">
+                <input id="male" type="radio" name="sex" value="Самец" required />
+                <label for="male" class="radio__label">самец</label>
+            </div>
+        </div>
+        <!-- </div>  не пон-->
+        <div class="form__item form__comment">
+            <label for="comment" class="form__legend legend_color-cyan comment__label">подробнее опишите
+                проблему</label>
+            <textarea id="comment" name="comment" class="form__fielset fieldset_color-cyan comment"
+                tabindex="10"></textarea>
+        </div>
+
+        <div class="form__item form__file">
+            <div class="form__label photo__label">приложить фото питомца</div>
+            <div class="file__item">
+                <input id="formPhoto" accept=".jpg, .png, .gif" type="file" name="photo" class="file__input"
+                    tabindex="11" />
+                <div id="choosePhoto" class="file__button button ">выбрать</div>
+            </div>
+            <div id="photoPreview" class="file__preview"></div>
+        </div>
+
+        <div class="form__item">
+            <label for="email" class="form__label">почта *</label>
+            <input id="email" type="email" name="email" class="form__input" value="" tabindex="12" required />
+        </div>
+
+        <div class="form__buttons">
+            <button id="sendForm" type="submit" class="button_color-green" tabindex="13">готово</button>
+
+            <button id="resetForm" type="reset" class="button_color-blue" tabindex="14">сброс</button>
+        </div>
+        <div id="errorsInfo"></div>
+        <div id="successMessage"></div>
+        <p class="agreement">Нажимая на кнопку "готово", вы даете согласие на обработку персональных
+            данных и соглашаетесь c<a href="#"> Политикой конфиденциальности</a></p>
+        </form>
+    </div>
+    <!-- <div id="cat"></div> -->
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+</body>
+
+
+
+</html>
