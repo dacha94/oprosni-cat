@@ -175,17 +175,35 @@ document.querySelector("#resetForm").addEventListener('click', function(){
 // })
 
 // 19 неделя. добавление  класса cat 
-class Cat {
-    constructor(name, race, sex, food, comment) {
-        this.name = name;
-        this.race = race;
-        this.sex = sex;
-        this.food = food;
-        this.comment = comment;
-    }
-}
-    console.log(name); 
-    console.log(race); 
-    console.log(sex); 
-    console.log(food);
-    console.log(comment);
+// class Cat {
+//     constructor(name, race, sex, food, comment) {
+//         this.name = name;
+//         this.race = race;
+//         this.sex = sex;
+//         this.food = food;
+//         this.comment = comment;
+//     }
+// }
+//     console.log(name); 
+//     console.log(race); 
+//     console.log(sex); 
+//     console.log(food);
+//     console.log(comment);
+
+//21 неделя. Добавление оправки формы 
+document.querySelector("#sendForm").addEventListener('click', function(event){
+
+    event.preventDefault();
+
+        fetch("https://httpbin.org/post",
+            {
+                method:'POST',
+                body: new FormData(form),
+                headers: {
+                    "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
+                },
+            })
+        .then(response => response.json())
+        .catch(error => console.log(error));
+
+});
